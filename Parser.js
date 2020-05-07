@@ -19,13 +19,10 @@ module.exports = class Parser {
             
         if(!data) return [];
       
-        if(data.combined_data) {
+        if(data.combined_data)
             return data.combined_data;
-        } else {
-            if(!data.rps.rp) return [];
           
-            return data.rps.rp;
-        };
+        return data.rps.rp || [];
     };
   
     static getUser(data) {
@@ -53,9 +50,7 @@ module.exports = class Parser {
           
             result[key] = value;
         };
-      
-        if(!result.createdAt) return null;
-      
-        return result;
+
+        return result.createdAt ? result : null;
     };
 };
