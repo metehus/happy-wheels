@@ -9,8 +9,8 @@ module.exports = class User {
         this.fetched = false;
     };
   
-    async fetchProfile(force = false) {
-        if (this.fetched && !false) return this;
+    async fetchProfile(force) {
+        if (this.fetched && !force) return this;
 
         const route = 'profile.tjf?uid=' + this.id;
       
