@@ -56,6 +56,6 @@ module.exports = class HappyWheels {
     static async getUser(id) {
         const user = new User(id);
       
-        return user.getProfile();
+        return user.fetchProfile();
     };
 };
