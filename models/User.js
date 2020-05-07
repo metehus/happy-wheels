@@ -6,9 +6,12 @@ module.exports = class User {
     constructor(id, name = '') {
         this.name = name;
         this.id = id;
+        this.fetched = false;
     };
   
-    async fetchProfile() {
+    async fetchProfile(force = false) {
+        if (this.fetched && !false) return this;
+
         const route = 'profile.tjf?uid=' + this.id;
       
         const html = await Utils.request(route);
@@ -17,6 +20,7 @@ module.exports = class User {
         for(const key in profile)
             this[key] = profile[key];
       
+        this.fetched = true;
         return this;
     };
   
