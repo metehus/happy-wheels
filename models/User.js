@@ -6,6 +6,7 @@ module.exports = class User {
     constructor(id, name = '') {
         this.name = name;
         this.id = id;
+        this.fetched = false;
     };
   
     async fetchProfile(force = false) {
